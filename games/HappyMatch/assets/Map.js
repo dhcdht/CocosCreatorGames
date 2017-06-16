@@ -17,11 +17,21 @@ export let Map = cc.Class({
     /**
      * 初始化地图
      * @param size 地图大小
+     * @param tags 初始的 tags
      */
-    initMap: function (size) {
+    initMap: function (size, tags) {
         this.map = new Array(size);
         for (let i = 0; i < size; i++) {
             this.map[i] = new Array(size);
+        }
+
+        if (tags) {
+            for (let i = 0; i < tags.length; i++) {
+                let row = tags[i];
+                for (let j = 0; j < row.length; j++) {
+                    this.map[i][j] = tags[i][j];
+                }
+            }
         }
     },
 
@@ -38,7 +48,7 @@ export let Map = cc.Class({
 
     getTag: function (x, y) {
         let card = this.map[x][y];
-        if (null === card) {
+        if (!card) {
             return Map.nilValue;
         } else {
             return card.tag;
@@ -47,7 +57,7 @@ export let Map = cc.Class({
 
     setTag: function (x, y, tag) {
         let card = this.map[x][y];
-        if (null === card) {
+        if (!card) {
             card = this.generateCard(tag);
             this.map[x][y] = card;
         } else {

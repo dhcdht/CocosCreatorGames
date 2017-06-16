@@ -1,6 +1,7 @@
 /**
  * Created by xieyajie on 16/06/2017.
  */
+import {Map} from "Map";
 
 /*
  * 展示地图
@@ -17,6 +18,22 @@ cc.Class({
 
         /// 所有已经被渲染的卡片
         cards: null,
+    },
+
+    onLoad: function () {
+        // fixme: test code
+        {
+            let map = new Map();
+            map.layerController = this;
+            let size = 6;
+            map.initMap(size);
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    map.setTag(i, j, 1);
+                }
+            }
+            map.finishInitMap();
+        }
     },
 
     startRenderMap: function (map) {
@@ -58,7 +75,7 @@ cc.Class({
     layoutCardAtIndex: function (x, y) {
         let card = this.cards[x][y];
 
-        if (card.parent === null) {
+        if (!card.parent) {
             this.cardContainerNode.addChild(card);
         }
 
