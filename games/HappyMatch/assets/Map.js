@@ -32,6 +32,10 @@ export let Map = cc.Class({
         this.layerController.startRenderMap(this);
     },
 
+    getSize: function () {
+        return this.map.length;
+    },
+
     getTag: function (x, y) {
         let card = this.map[x][y];
         if (null === card) {

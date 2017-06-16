@@ -3,8 +3,8 @@
  */
 
 /*
-* 创建地图
-* */
+ * 创建地图
+ * */
 let GameController = cc.Class({
     name: 'GameController',
 
@@ -17,8 +17,8 @@ let GameController = cc.Class({
     },
 
     /*
-    * 初始化游戏
-    * */
+     * 初始化游戏
+     * */
     initGame: function () {
         this.map = require("Map");
 
