@@ -8,10 +8,10 @@ export let Map = cc.Class({
 
     properties: {
         /// 卡片数组
-        map: null,
+        cards: null,
 
         /// 渲染器
-        layerController: null
+        layerController: null,
     },
 
     /**
@@ -20,16 +20,16 @@ export let Map = cc.Class({
      * @param tags 初始的 tags
      */
     initMap: function (size, tags) {
-        this.map = new Array(size);
+        this.cards = new Array(size);
         for (let i = 0; i < size; i++) {
-            this.map[i] = new Array(size);
+            this.cards[i] = new Array(size);
         }
 
         if (tags) {
             for (let i = 0; i < tags.length; i++) {
                 let row = tags[i];
                 for (let j = 0; j < row.length; j++) {
-                    this.map[i][j] = tags[i][j];
+                    this.cards[i][j] = tags[i][j];
                 }
             }
         }
@@ -43,11 +43,11 @@ export let Map = cc.Class({
     },
 
     getSize: function () {
-        return this.map.length;
+        return this.cards.length;
     },
 
     getTag: function (x, y) {
-        let card = this.map[x][y];
+        let card = this.cards[x][y];
         if (!card) {
             return Map.nilValue;
         } else {
@@ -56,17 +56,17 @@ export let Map = cc.Class({
     },
 
     setTag: function (x, y, tag) {
-        let card = this.map[x][y];
+        let card = this.cards[x][y];
         if (!card) {
             card = this.generateCard(tag);
-            this.map[x][y] = card;
+            this.cards[x][y] = card;
         } else {
             return false
         }
     },
 
     getCard: function (x, y) {
-        return this.map[x][y];
+        return this.cards[x][y];
     },
 
     generateCard: function (tag) {

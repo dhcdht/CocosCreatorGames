@@ -4875,7 +4875,7 @@ declare module cc {
 		!#en
 		Returns the tile gid at a given tile coordinate. <br />
 		if it returns 0, it means that the tile is empty. <br />
-		This method requires the the tile map has not been previously released (eg. don't call layer.releaseMap())<br />
+		This method requires the the tile cards has not been previously released (eg. don't call layer.releaseMap())<br />
 		!#zh
 		通过给定的 tile 坐标、flags（可选）返回 tile 的 GID. <br />
 		如果它返回 0，则表示该 tile 为空。<br />
@@ -4915,9 +4915,9 @@ declare module cc {
 		getTileAt(pos: Vec2|number, y?: number): _ccsg.Sprite;		
 		/**
 		!#en
-		Dealloc the map that contains the tile position from memory. <br />
+		Dealloc the cards that contains the tile position from memory. <br />
 		Unless you want to know at runtime the tiles positions, you can safely call this method. <br />
-		If you are going to call layer.getTileGIDAt() then, don't release the map.
+		If you are going to call layer.getTileGIDAt() then, don't release the cards.
 		!#zh
 		从内存中释放包含 tile 位置信息的地图。<br />
 		除了在运行时想要知道 tiles 的位置信息外，你都可安全的调用此方法。<br />
@@ -4997,7 +4997,7 @@ declare module cc {
 		*/
 		setLayerSize(layerSize: Size): void;		
 		/**
-		!#en Size of the map's tile (could be different from the tile's size).
+		!#en Size of the cards's tile (could be different from the tile's size).
 		!#zh 获取 tile 的大小( tile 的大小可能会有所不同)。
 		
 		@example 
@@ -5008,7 +5008,7 @@ declare module cc {
 		*/
 		getMapTileSize(): Size;		
 		/**
-		!#en Set the map tile size.
+		!#en Set the cards tile size.
 		!#zh 设置 tile 的大小。
 		@param tileSize tileSize
 		
@@ -5019,7 +5019,7 @@ declare module cc {
 		*/
 		setMapTileSize(tileSize: Size): void;		
 		/**
-		!#en Pointer to the map of tiles.
+		!#en Pointer to the cards of tiles.
 		!#zh 获取地图 tiles。
 		
 		@example 
@@ -5029,7 +5029,7 @@ declare module cc {
 		*/
 		getTiles(): any[];		
 		/**
-		!#en Pointer to the map of tiles.
+		!#en Pointer to the cards of tiles.
 		!#zh 设置地图 tiles
 		@param tiles tiles
 		
@@ -5061,7 +5061,7 @@ declare module cc {
 		*/
 		setTileSet(tileset: TMXTilesetInfo): void;		
 		/**
-		!#en Layer orientation, which is the same as the map orientation.
+		!#en Layer orientation, which is the same as the cards orientation.
 		!#zh 获取 Layer 方向(同地图方向)。
 		
 		@example 
@@ -5072,7 +5072,7 @@ declare module cc {
 		*/
 		getLayerOrientation(): number;		
 		/**
-		!#en Layer orientation, which is the same as the map orientation.
+		!#en Layer orientation, which is the same as the cards orientation.
 		!#zh 设置 Layer 方向(同地图方向)。
 		@param orientation orientation
 		
@@ -5112,7 +5112,7 @@ declare module cc {
 		!#zh TiledMap 资源。 */
 		tmxAsset: TiledMapAsset;		
 		/**
-		!#en Gets the map size.
+		!#en Gets the cards size.
 		!#zh 获取地图大小。
 		
 		@example 
@@ -5123,7 +5123,7 @@ declare module cc {
 		*/
 		getMapSize(): Size;		
 		/**
-		!#en Set the map size.
+		!#en Set the cards size.
 		!#zh 设置地图大小。
 		@param mapSize mapSize
 		
@@ -5156,7 +5156,7 @@ declare module cc {
 		*/
 		setTileSize(tileSize: Size): void;		
 		/**
-		!#en map orientation.
+		!#en cards orientation.
 		!#zh 获取地图方向。
 		
 		@example 
@@ -5167,7 +5167,7 @@ declare module cc {
 		*/
 		getMapOrientation(): number;		
 		/**
-		!#en map orientation.
+		!#en cards orientation.
 		!#zh 设置地图方向。
 		@param orientation orientation
 		
@@ -5191,7 +5191,7 @@ declare module cc {
 		*/
 		getObjectGroups(): TiledObjectGroup[];		
 		/**
-		!#en Gets the map properties.
+		!#en Gets the cards properties.
 		!#zh 获取地图的属性。
 		
 		@example 
@@ -5204,7 +5204,7 @@ declare module cc {
 		*/
 		getProperties(): any[];		
 		/**
-		!#en Set the map properties.
+		!#en Set the cards properties.
 		!#zh 设置地图的属性。
 		@param properties properties
 		
@@ -5276,7 +5276,7 @@ declare module cc {
 		*/
 		getPropertiesForGID(GID: number): any;	
 	}	
-	/** Class for tiled map asset handling. */
+	/** Class for tiled cards asset handling. */
 	export class TiledMapAsset extends Asset {	
 	}	
 	/** !#en Renders the TMX object group.
@@ -9236,7 +9236,7 @@ declare module cc {
 	/** !#en
 	LoadingItems is the queue of items which can flow them into the loading pipeline.</br>
 	Please don't construct it directly, use {{#crossLink "LoadingItems.create"}}LoadingItems.create{{/crossLink}} instead, because we use an internal pool to recycle the queues.</br>
-	It hold a map of items, each entry in the map is a url to object key value pair.</br>
+	It hold a cards of items, each entry in the cards is a url to object key value pair.</br>
 	Each item always contains the following property:</br>
 	- id: The identification of the item, usually it's identical to url</br>
 	- url: The url </br>
@@ -9252,7 +9252,7 @@ declare module cc {
 	!#zh
 	LoadingItems 是一个加载对象队列，可以用来输送加载对象到加载管线中。</br>
 	请不要直接使用 new 构造这个类的对象，你可以使用 {{#crossLink "LoadingItems.create"}}LoadingItems.create{{/crossLink}} 来创建一个新的加载队列，这样可以允许我们的内部对象池回收并重利用加载队列。
-	它有一个 map 属性用来存放加载项，在 map 对象中已 url 为 key 值。</br>
+	它有一个 cards 属性用来存放加载项，在 cards 对象中已 url 为 key 值。</br>
 	每个对象都会包含下列属性：</br>
 	- id：该对象的标识，通常与 url 相同。</br>
 	- url：路径 </br>
@@ -9300,10 +9300,10 @@ declare module cc {
 		``` 
 		*/
 		onComplete(errors: any[], items: LoadingItems): void;		
-		/** !#en The map of all items.
+		/** !#en The cards of all items.
 		!#zh 存储所有加载项的对象。 */
 		map: any;		
-		/** !#en The map of completed items.
+		/** !#en The cards of completed items.
 		!#zh 存储已经完成的加载项。 */
 		completed: any;		
 		/** !#en Total count of all items.
@@ -9689,7 +9689,7 @@ declare module cc {
 		*/
 		update(dt: number): void;	
 	}	
-	/** !#en Key map for keyboard event
+	/** !#en Key cards for keyboard event
 	!#zh 键盘事件的按键值 */
 	export enum KEY {		
 		none = 0,
@@ -13676,7 +13676,7 @@ declare module cc {
 	*****************************************************/
 	
 	export module TiledMap {		
-		/** !#en The orientation of tiled map.
+		/** !#en The orientation of tiled cards.
 		!#zh Tiled Map 地图方向。 */
 		export enum Orientation {			
 			ORTHO = 0,
@@ -14996,7 +14996,7 @@ declare module anysdk {
 		pay interface
 		!#zh
 		支付接口
-		@param info Type:map 
+		@param info Type:cards
 		*/
 		payForProduct(info: any): void;		
 		/**
@@ -15079,7 +15079,7 @@ declare module anysdk {
 		!#zh
 		捕捉事件
 		@param errorId errorId
-		@param args optional arguments Type: map 
+		@param args optional arguments Type: cards
 		*/
 		logEvent(errorId: string, ...args: any[]): void;		
 		/**
@@ -15111,7 +15111,7 @@ declare module anysdk {
 		analytics account information
 		!#zh
 		统计玩家帐户信息
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		setAccount(paramMap: any): void;		
 		/**
@@ -15119,7 +15119,7 @@ declare module anysdk {
 		track user to request payment
 		!#zh
 		跟踪用户支付请求
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		onChargeRequest(paramMap: any): void;		
 		/**
@@ -15135,7 +15135,7 @@ declare module anysdk {
 		track failed payment
 		!#zh
 		追踪用户支付失败
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		onChargeFail(paramMap: any): void;		
 		/**
@@ -15143,7 +15143,7 @@ declare module anysdk {
 		track Successful payment
 		!#zh
 		统计玩家支付成功
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		onChargeOnlySuccess(paramMap: any): void;		
 		/**
@@ -15151,7 +15151,7 @@ declare module anysdk {
 		track user purchase
 		!#zh
 		统计玩家消费
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		onPurchase(paramMap: any): void;		
 		/**
@@ -15159,7 +15159,7 @@ declare module anysdk {
 		track user to use goods
 		!#zh
 		统计玩家使用道具
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		onUse(paramMap: any): void;		
 		/**
@@ -15167,7 +15167,7 @@ declare module anysdk {
 		track user to reward goods
 		!#zh
 		统计玩家获取奖励
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		onReward(paramMap: any): void;		
 		/**
@@ -15175,7 +15175,7 @@ declare module anysdk {
 		 start level
 		!#zh
 		开始关卡
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		startLevel(paramMap: any): void;		
 		/**
@@ -15191,7 +15191,7 @@ declare module anysdk {
 		failed level
 		!#zh
 		关卡失败
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		failLevel(paramMap: any): void;		
 		/**
@@ -15199,7 +15199,7 @@ declare module anysdk {
 		start task
 		!#zh
 		开始任务
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		startTask(paramMap: any): void;		
 		/**
@@ -15215,7 +15215,7 @@ declare module anysdk {
 		failed task
 		!#zh
 		任务失败
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		failTask(paramMap: any): void;	
 	}	
@@ -15229,7 +15229,7 @@ declare module anysdk {
 		share interface
 		!#zh
 		分享
-		@param info Type: map 
+		@param info Type: cards
 		*/
 		share(info: any): void;		
 		/**
@@ -15360,7 +15360,7 @@ declare module anysdk {
 		unlock achievement
 		!#zh
 		解锁成就
-		@param info Type: map 
+		@param info Type: cards
 		*/
 		share(info: any): void;		
 		/**
@@ -15513,7 +15513,7 @@ declare module anysdk {
 		share video
 		!#zh
 		分享视频
-		@param info Type: map 
+		@param info Type: cards
 		*/
 		share(info: any): void;		
 		/**
@@ -15616,7 +15616,7 @@ declare module anysdk {
 		Before to invoke, you need to verdict whether this properties existed
 		!#zh
 		设置视频相关数据，建议先检查是否是正在录制，调用前需要判断属性是否存在
-		@param info Type: map 
+		@param info Type: cards
 		*/
 		setMetaData(info: any): void;	
 	}	
@@ -15630,7 +15630,7 @@ declare module anysdk {
 		Call this method if you want to track register events as happening during a section.
 		!#zh
 		统计用户注册信息
-		@param productInfo Type: map 
+		@param productInfo Type: cards
 		*/
 		onPay(productInfo: any): void;		
 		/**
@@ -15638,7 +15638,7 @@ declare module anysdk {
 		Call this method if you want to track register events as happening during a section.
 		!#zh
 		统计用户注册信息
-		@param userInfo Type: map 
+		@param userInfo Type: cards
 		*/
 		onLogin(userInfo: any): void;		
 		/**
@@ -15655,7 +15655,7 @@ declare module anysdk {
 		!#zh
 		统计自定义事件
 		@param eventId eventId
-		@param paramMap Type: map 
+		@param paramMap Type: cards
 		*/
 		trackEvent(eventId: string, paramMap: any): void;		
 		/**
@@ -15663,7 +15663,7 @@ declare module anysdk {
 		Call this method with parameters if you want to create role as happening during a section.
 		!#zh
 		统计创建角色事件，调用前需要判断属性是否存在
-		@param userInfo Type: map 
+		@param userInfo Type: cards
 		*/
 		onCreateRole(userInfo: any): void;		
 		/**
@@ -15672,7 +15672,7 @@ declare module anysdk {
 		Before to invoke, you need to verdict whether this properties existed
 		!#zh
 		统计角色升级事件，调用前需要判断属性是否存在
-		@param info Type: map 
+		@param info Type: cards
 		*/
 		onLevelUp(info: any): void;		
 		/**
@@ -15681,7 +15681,7 @@ declare module anysdk {
 		Before to invoke, you need to verdict whether this properties existed
 		!#zh
 		统计开始充值事件，调用前需要判断属性是否存在
-		@param info Type: map 
+		@param info Type: cards
 		*/
 		onStartToPay(info: any): void;	
 	}	
