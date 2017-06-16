@@ -8,16 +8,10 @@ export let Map = cc.Class({
 
     properties: {
         /// 卡片数组
-        map: Array
-    },
+        map: null,
 
-    /**
-     * 构造函数
-     */
-    ctor: function () {
-        this.map = new Array(1);
-        this.map[0] = new Array(1);
-        this.map[0][0] = this.generateCard(0);
+        /// 渲染器
+        layerController: null
     },
 
     initMap: function (size) {
@@ -25,6 +19,10 @@ export let Map = cc.Class({
         for (let i = 0; i < size; i++) {
             this.map[i] = new Array(size);
         }
+    },
+
+    finishInitMap: function () {
+        this.layerController.startRenderMap(this);
     },
 
     getTag: function (x, y) {
