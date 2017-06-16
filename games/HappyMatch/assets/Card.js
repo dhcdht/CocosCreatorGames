@@ -1,5 +1,5 @@
-/*
- 卡片
+/**
+ * 卡片
  */
 export let Card = cc.Class({
     name: 'Card',

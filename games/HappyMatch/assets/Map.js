@@ -1,7 +1,7 @@
 import {Card} from "Card";
 
-/*
- 地图
+/**
+ * 地图
  */
 export let Map = cc.Class({
     name: 'Map',
@@ -14,6 +14,10 @@ export let Map = cc.Class({
         layerController: null
     },
 
+    /**
+     * 初始化地图
+     * @param size 地图大小
+     */
     initMap: function (size) {
         this.map = new Array(size);
         for (let i = 0; i < size; i++) {
@@ -21,6 +25,9 @@ export let Map = cc.Class({
         }
     },
 
+    /**
+     * 初始化地图完成
+     */
     finishInitMap: function () {
         this.layerController.startRenderMap(this);
     },
