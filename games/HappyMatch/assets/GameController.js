@@ -25,6 +25,7 @@ let GameController = cc.Class({
         let size = 4;
         this.map.initMap(size);
         this.setupCards(size);
+        this.finishInit();
     },
 
     finishInit: function () {
