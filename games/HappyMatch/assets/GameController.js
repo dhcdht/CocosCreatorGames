@@ -1,6 +1,7 @@
 /**
  * Created by xieyajie on 16/06/2017.
  */
+import {Map} from "Map";
 
 /*
  * 创建地图
@@ -9,7 +10,7 @@ let GameController = cc.Class({
     name: 'GameController',
 
     properties: {
-        map: Map
+        map: Map,
     },
 
     onLoad: function () {
