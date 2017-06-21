@@ -19,10 +19,10 @@ export let Map = cc.Class({
      * @param size 地图大小
      * @param tags 初始的 tags
      */
-    initMap: function (size, tags) {
-        this.cards = new Array(size);
-        for (let i = 0; i < size; i++) {
-            this.cards[i] = new Array(size);
+    initMap: function (width, height, tags=null) {
+        this.cards = new Array(height);
+        for (let i = 0; i < height; i++) {
+            this.cards[i] = new Array(width);
         }
 
         if (tags) {
@@ -42,7 +42,11 @@ export let Map = cc.Class({
         this.layerController.startRenderMap(this);
     },
 
-    getSize: function () {
+    getWidth: function () {
+        return this.cards[0].length;
+    },
+
+    getHeight: function () {
         return this.cards.length;
     },
 

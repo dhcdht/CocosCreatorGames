@@ -204,7 +204,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Layer Controller",
+    "_name": "Controllers",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -215,10 +215,13 @@
     "_components": [
       {
         "__id__": 7
+      },
+      {
+        "__id__": 8
       }
     ],
     "_prefab": null,
-    "_id": "0ab241PRhNHIZpKO1EiflJ3",
+    "_id": "16a06jxS5pJpa7vjNesTxPV",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -253,6 +256,16 @@
     "_globalZOrder": 0,
     "_opacityModifyRGB": false,
     "groupIndex": 0
+  },
+  {
+    "__type__": "3c70aRI68RHiJWAPt9Jdmu6",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 6
+    },
+    "_enabled": true,
+    "map": null
   },
   {
     "__type__": "924f9J0QvREgLDM3TrrcfCU",

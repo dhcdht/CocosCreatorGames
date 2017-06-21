@@ -21,29 +21,18 @@ cc.Class({
     },
 
     onLoad: function () {
-        // fixme: test code
-        {
-            let map = new Map();
-            map.layerController = this;
-            let size = 6;
-            map.initMap(size);
-            for (let i = 0; i < size; i++) {
-                for (let j = 0; j < size; j++) {
-                    map.setTag(i, j, 1);
-                }
-            }
-            map.finishInitMap();
-        }
+
     },
 
     startRenderMap: function (map) {
         this.removeAllCard();
 
         this.cards = [];
-        let size = map.getSize();
-        for (let i = 0; i < size; i++) {
+        let width = map.getWidth();
+        let height = map.getHeight();
+        for (let i = 0; i < height; i++) {
             let row = [];
-            for (let j = 0; j < size; j++) {
+            for (let j = 0; j < width; j++) {
                 let card = cc.instantiate(this.prefabCard);
                 row[j] = card;
             }
@@ -72,8 +61,8 @@ cc.Class({
         }
     },
 
-    layoutCardAtIndex: function (x, y) {
-        let card = this.cards[x][y];
+    layoutCardAtIndex: function (row, col) {
+        let card = this.cards[row][col];
 
         if (!card.parent) {
             this.cardContainerNode.addChild(card);
@@ -82,12 +71,12 @@ cc.Class({
         let width = card.width + 10;
         let height = card.height + 10;
 
-        let baseX = (this.cards.length * width) / -2;
-        let baseY = (this.cards[0].length * height) / -2;
+        let baseRow = (this.cards.length * height) / -2;
+        let baseCol = (this.cards[0].length * width) / -2;
 
-        let pX = baseX + width * x;
-        let pY = baseY + height * y;
+        let pRow = baseRow + height * row;
+        let pCol = baseCol + width * col;
 
-        card.setPosition(pX, pY);
+        card.setPosition(pCol, pRow);
     }
 });
