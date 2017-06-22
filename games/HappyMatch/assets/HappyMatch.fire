@@ -279,8 +279,25 @@
       "__id__": 3
     },
     "prefabCard": {
-      "__uuid__": "75cbc2f0-e730-476b-903b-281d8abf658a"
+      "__uuid__": "91e3cafd-72e7-4eba-9d8d-906b0f5a39cb"
     },
+    "cardTagTextureURLs": [
+      {
+        "__uuid__": "fdcd9f4d-37f4-4b1b-80a4-59c6479239de"
+      },
+      {
+        "__uuid__": "1702d68e-390a-486c-8d07-223b62fc6838"
+      },
+      {
+        "__uuid__": "891941e8-4b8b-4e95-a947-f7711ef84890"
+      },
+      {
+        "__uuid__": "45fcf485-fc48-454d-9383-e03298b19ba2"
+      },
+      {
+        "__uuid__": "0cef31c9-34a4-4976-bc73-7c54f0184162"
+      }
+    ],
     "cards": null
   }
 ]

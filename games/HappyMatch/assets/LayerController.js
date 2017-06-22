@@ -1,7 +1,6 @@
 /**
  * Created by xieyajie on 16/06/2017.
  */
-import {Map} from "Map";
 
 /*
  * 展示地图
@@ -15,6 +14,9 @@ cc.Class({
 
         /// 卡片原型
         prefabCard: cc.Prefab,
+
+        // 卡片的图片
+        cardTagTextureURLs: [cc.Texture2D],
 
         /// 所有已经被渲染的卡片
         cards: null,
@@ -33,7 +35,11 @@ cc.Class({
         for (let i = 0; i < height; i++) {
             let row = [];
             for (let j = 0; j < width; j++) {
+                let tag = map.getTag(i, j);
+                let cardTextureURL = this.cardTagTextureURLs[tag - 1];
                 let card = cc.instantiate(this.prefabCard);
+                let frame = new cc.SpriteFrame(cardTextureURL);
+                card.getComponent(cc.Sprite).spriteFrame = frame;
                 row[j] = card;
             }
             this.cards[i] = row;
