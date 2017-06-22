@@ -50,7 +50,7 @@ let GameController = cc.Class({
         }
 
         //随机获取位置
-        let maxTag = 10;
+        let maxTag = 5;
         var maxIndex = tmpArray.length - 1;
         let maxX = tmpArray.length / 2;
         for (var x = 0; x < maxX; x++) {
