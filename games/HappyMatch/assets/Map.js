@@ -50,8 +50,8 @@ export let Map = cc.Class({
         return this.cards.length;
     },
 
-    getTag: function (x, y) {
-        let card = this.cards[x][y];
+    getTag: function (row, col) {
+        let card = this.cards[row][col];
         if (!card) {
             return Map.nilValue;
         } else {
@@ -59,18 +59,18 @@ export let Map = cc.Class({
         }
     },
 
-    setTag: function (x, y, tag) {
-        let card = this.cards[x][y];
+    setTag: function (row, col, tag) {
+        let card = this.cards[row][col];
         if (!card) {
             card = this.generateCard(tag);
-            this.cards[x][y] = card;
+            this.cards[row][col] = card;
         } else {
             return false
         }
     },
 
-    getCard: function (x, y) {
-        return this.cards[x][y];
+    getCard: function (row, col) {
+        return this.cards[row][col];
     },
 
     generateCard: function (tag) {

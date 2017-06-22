@@ -25,6 +25,7 @@ let GameController = cc.Class({
     initGame: function () {
         this.map = new Map();
         let layerController = this.node.getComponent("LayerController");
+        layerController.gameController = this;
         this.map.layerController = layerController;
 
         let width = 6;
@@ -69,4 +70,16 @@ let GameController = cc.Class({
         }
     },
 
+    touchRowCol: function (row, col) {
+        if (col < 0 || row < 0) {
+            return;
+        }
+
+        let tag = this.map.getTag(row, col)
+        if (tag <= 0) {
+            return;
+        }
+
+        console.log("touch " + row + "," + col + " tag " + tag)
+    },
 });

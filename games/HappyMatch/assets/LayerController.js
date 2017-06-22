@@ -20,9 +20,33 @@ cc.Class({
 
         /// 所有已经被渲染的卡片
         cards: null,
+
+        gameController: null,
     },
 
     onLoad: function () {
+         this.cardContainerNode.on(cc.Node.EventType.TOUCH_END, function (e) {
+             let pX = e.touch._point.x;
+             let pY = e.touch._point.y;
+             pX -= this.cardContainerNode.width / 2;
+             pY -= this.cardContainerNode.height / 2;
+
+             let width = this.cards[0][0].width + 10;
+             let height = this.cards[0][0].height + 10;
+             let baseRow = (this.cards.length * height) / -2;
+             let baseCol = (this.cards[0].length * width) / -2;
+
+             let col = Math.floor((pX - baseCol) / width);
+             if (col < 0 || col >= this.cards[0].length) {
+                 col = -1;
+             }
+             let row = Math.floor((pY - baseRow) / height);
+             if (row < 0 || row >= this.cards.length) {
+                 row = -1;
+             }
+
+             this.gameController.touchRowCol(row, col);
+         }.bind(this), this);
 
     },
 
@@ -77,8 +101,8 @@ cc.Class({
         let width = card.width + 10;
         let height = card.height + 10;
 
-        let baseRow = (this.cards.length * height) / -2;
-        let baseCol = (this.cards[0].length * width) / -2;
+        let baseRow = (this.cards.length * height) / -2 + height/2;
+        let baseCol = (this.cards[0].length * width) / -2 + width/2;
 
         let pRow = baseRow + height * row;
         let pCol = baseCol + width * col;
